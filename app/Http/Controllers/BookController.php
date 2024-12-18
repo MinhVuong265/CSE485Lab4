@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Book;
 use Illuminate\Http\Request;
 
 class BookController extends Controller
@@ -11,7 +12,8 @@ class BookController extends Controller
      */
     public function index()
     {
-        //
+        $books = Book::all(); 
+        return view('books.index', compact('books'));
     }
 
     /**
@@ -19,15 +21,21 @@ class BookController extends Controller
      */
     public function create()
     {
-        //
+        return view('books.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request) 
+    { 
+        $request->validate([ 
+            'name' => 'required', 
+            'author' => 'required', 
+            // ... các validation khác 
+        ]); 
+        Book::create($request->all()); 
+        return redirect()->route('books.index') ->with('success', 'Thêm sách thành công.'); 
     }
 
     /**
