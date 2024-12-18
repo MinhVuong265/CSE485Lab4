@@ -13,5 +13,10 @@ class Reader extends Model
 {
  return $this->hasMany(Borrow::class);
 }
-
+protected $fillable = [
+    'name',
+    'birthday',
+    'address',
+    'phone',
+];
 }
