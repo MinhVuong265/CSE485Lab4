@@ -13,7 +13,8 @@ class ReaderController extends Controller
     public function index()
     {
         //
-        $readers = Reader::all();
+        // $readers = Reader::all();
+        $readers = Reader::paginate(10);
         return view('readers.index', compact('readers'));
     }
 
@@ -41,7 +42,7 @@ class ReaderController extends Controller
 
         Reader::create($request->all());
 
-        return redirect()->route('readers.index')->with('success', 'Reader created successfully.');
+        return redirect()->route('readers.index')->with('success', 'Thêm mới độc giả thành công.');
     }
 
     /**
@@ -77,7 +78,7 @@ class ReaderController extends Controller
 
         $reader->update($validatedData);
 
-        return redirect()->route('readers.index')->with('success', 'Reader updated successfully.');
+        return redirect()->route('readers.index')->with('success', 'Cập nhật thành công độc giả.');
     }
 
     /**
@@ -88,6 +89,6 @@ class ReaderController extends Controller
         //
         $reader->delete();
 
-        return redirect()->route('readers.index')->with('success', 'Reader deleted successfully.');
+        return redirect()->route('readers.index')->with('success', 'Xoá độc giả thành công.');
     }
 }

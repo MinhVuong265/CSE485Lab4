@@ -16,19 +16,20 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
-<<<<<<< HEAD
-        // User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
-        \App\Models\Reader::factory(10)->create();
-=======
-        Book::factory(10)->create();
-
+// <<<<<<< HEAD
         User::factory()->create([
             'name' => 'Test User',
             'email' => 'test@example.com',
         ]);
->>>>>>> origin/LinhTP
-    }
+        \App\Models\Reader::factory(10)->create();
+// =======
+//         Book::factory(10)->create();
+
+//         User::factory()->create([
+//             'name' => 'Test User',
+//             'email' => 'test@example.com',
+//         ]);
+// >>>>>>> origin/LinhTP
+//     }
+}
 }
