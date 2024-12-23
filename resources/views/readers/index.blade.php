@@ -36,5 +36,47 @@
                 @endforeach
             </tbody>
         </table>
+
+        <!-- Phân trang tùy chỉnh -->
+        <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-center">
+                {{-- Liên kết "Previous" --}}
+                @if ($readers->onFirstPage())
+                    <li class="page-item disabled">
+                        <span class="page-link" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </span>
+                    </li>
+                @else
+                    <li class="page-item">
+                        <a class="page-link" href="{{ $readers->previousPageUrl() }}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                @endif
+
+                {{-- Các số trang --}}
+                @foreach ($readers->getUrlRange(1, $readers->lastPage()) as $page => $url)
+                    <li class="page-item {{ $page == $readers->currentPage() ? 'active' : '' }}">
+                        <a class="page-link" href="{{ $url }}">{{ $page }}</a>
+                    </li>
+                @endforeach
+
+                {{-- Liên kết "Next" --}}
+                @if ($readers->hasMorePages())
+                    <li class="page-item">
+                        <a class="page-link" href="{{ $readers->nextPageUrl() }}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                @else
+                    <li class="page-item disabled">
+                        <span class="page-link" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </span>
+                    </li>
+                @endif
+            </ul>
+        </nav>
     </div>
 @endsection
