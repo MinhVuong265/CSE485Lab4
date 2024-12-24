@@ -11,6 +11,6 @@ class Book extends Model
     public function borrows() 
     { 
         
-        // return $this->hasMany(Borrow::class); 
+        return $this->hasMany(Borrow::class); 
     } 
 }

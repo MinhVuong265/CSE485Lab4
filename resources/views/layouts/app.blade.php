@@ -19,7 +19,10 @@
                         <a class="nav-link active" aria-current="page" href="{{ route('readers.index') }}">Danh sách độc giả</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('readers.create') }}">Thêm mới độc giả</a>
+                        <a class="nav-link" href="{{ route('borrow.index') }}">Danh sách mượn trả</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('borrow.create') }}">Mượn sách</a>
                     </li>
                 </ul>
             </div>
