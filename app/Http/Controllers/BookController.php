@@ -12,14 +12,8 @@ class BookController extends Controller
      */
     public function index()
     {
-<<<<<<< HEAD
         $books = Book::all(); 
         return view('books.index', compact('books')); 
-=======
-        $books = Book::paginate(10); 
-        return view('books.index', compact('books'));
-        
->>>>>>> bbfed5b893c290a0a9bf5c05b58637a1a814005f
     }
 
 
@@ -28,11 +22,7 @@ class BookController extends Controller
      */
     public function create()
     {
-<<<<<<< HEAD
         return view('books.create'); 
-=======
-        return view('books.create');
->>>>>>> bbfed5b893c290a0a9bf5c05b58637a1a814005f
     }
 
     /**

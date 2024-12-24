@@ -20,9 +20,15 @@
             </div>
             <div class="form-group mt-3">
                 <label for="phone">Số điện thoại:</label>
-                <input type="text" class="form-control" id="phone" name="phone" value="{{ $reader->phone }}" required>
+                <input type="tel" class="form-control" id="phone" name="phone" value="{{ $reader->phone }}" required pattern="[0-9]{10,15}" title="Vui lòng nhập chữ số!!!">
             </div>
             <button type="submit" class="btn btn-primary mt-3">Lưu</button>
+            <a href="{{ route('readers.index') }}" class="btn btn-primary mt-3">Quay lại</a>
         </form>
     </div>
+    <script>
+        document.getElementById('phone').addEventListener('input', function (e) {
+            this.value = this.value.replace(/[^0-9]/g, ''); // Loại bỏ ký tự không phải số
+        });
+    </script>
 @endsection

@@ -15,14 +15,16 @@
         </tr>
     </thead>
     <tbody>
-        @foreach($borrows as $key=>$borrow)
+        @foreach($borrows as $key => $borrow)
         <tr>
-            <th scope="row">{{$key+1}}</th>
-            <td>{{ $borrow->reader->name }}</td>
-            <td>{{ $borrow->book->name }}</td>
+            <th scope="row">{{ $key + 1 }}</th>
+            <td>{{ $borrow->reader ? $borrow->reader->name : 'Không xác định' }}</td>
+            <td>{{ $borrow->book ? $borrow->book->name : 'Không xác định' }}</td>
             <td>{{ $borrow->borrow_date }}</td>
             <td>{{ $borrow->return_date }}</td>
-            <td class="fw-bold {{$borrow->status ? 'text-success' : 'text-danger' }}">{{ $borrow->status ? 'Đã trả' : 'Chưa trả' }}</td>
+            <td class="fw-bold {{ $borrow->status ? 'text-success' : 'text-danger' }}">
+                {{ $borrow->status ? 'Đã trả' : 'Chưa trả' }}
+            </td>
             <td>
                 @if (!$borrow->status)
                 <form action="{{ route('borrow.return', $borrow->id) }}" method="post">
@@ -36,6 +38,4 @@
         @endforeach
     </tbody>
 </table>
-
-
 @endsection

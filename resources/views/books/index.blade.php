@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <h1>Danh sách Book</h1>
+        <h1>Danh sách sách</h1>
         <a href="{{ route('books.create') }}" class="btn btn-primary">Thêm mới</a>
         <table class="table">
             <thead>

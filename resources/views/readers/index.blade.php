@@ -37,7 +37,29 @@
             </tbody>
         </table>
 
-        <!-- Phân trang tùy chỉnh -->
+        
+         <!-- Phân trang -->
+         <nav aria-label="Page navigation example">
+            <ul class="pagination justify-content-end">
+                <!-- Liên kết Previous -->
+                <li class="page-item {{ $readers->onFirstPage() ? 'disabled' : '' }}">
+                    <a class="page-link" href="{{ $readers->previousPageUrl() ?? '#' }}" tabindex="-1">Previous</a>
+                </li>
+
+                <!-- Các số trang -->
+                @foreach ($readers->getUrlRange(1, $readers->lastPage()) as $page => $url)
+                    <li class="page-item {{ $page == $readers->currentPage() ? 'active' : '' }}">
+                        <a class="page-link" href="{{ $url }}">{{ $page }}</a>
+                    </li>
+                @endforeach
+
+                <!-- Liên kết Next -->
+                <li class="page-item {{ $readers->hasMorePages() ? '' : 'disabled' }}">
+                    <a class="page-link" href="{{ $readers->nextPageUrl() ?? '#' }}">Next</a>
+                </li>
+            </ul>
+        </nav>
+        <!-- {{-- <!-- Phân trang tùy chỉnh -->
         <nav aria-label="Page navigation example">
             <ul class="pagination justify-content-center">
                 {{-- Liên kết "Previous" --}}
@@ -77,6 +99,6 @@
                     </li>
                 @endif
             </ul>
-        </nav>
+        </nav> --}}-->
     </div>
 @endsection
