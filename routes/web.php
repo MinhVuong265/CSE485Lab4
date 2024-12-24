@@ -9,6 +9,17 @@ Route::resource('borrow', BorrowController::class);
 
 
 Route::get('/', function () {
+    return redirect()->route('borrow.index');
+});
+
+Route::patch('borrow/{borrow}/return',[BorrowController::class, 'returnBook'])->name('borrow.return');
+
+Route::get('reader/{reader}/history',[BorrowController::class, 'history'])->name('readers.history');
+
+
+Route::resource('books', BookController::class);
+
+Route::get('/', function () {
     return redirect()->route('books.index');
 });
 
@@ -18,9 +29,3 @@ Route::get('/books/create', [BookController::class, 'create'])->name('books.crea
 Route::get('/books/{book}/edit', [BookController::class, 'edit'])->name('books.edit');
 Route::put('/books/{book}', [BookController::class, 'update'])->name('books.update');
 Route::delete('/books/{book}', [BookController::class, 'destroy'])->name('books.destroy');
-    return redirect()->route('borrow.index');
-});
-
-Route::patch('borrow/{borrow}/return',[BorrowController::class, 'returnBook'])->name('borrow.return');
-
-Route::get('reader/{reader}/history',[BorrowController::class, 'history'])->name('readers.history');
