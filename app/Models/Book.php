@@ -13,4 +13,5 @@ class Book extends Model
         
         return $this->hasMany(Borrow::class); 
     } 
+    protected $fillable = ['name', 'author', 'category', 'year', 'quantity'];
 }

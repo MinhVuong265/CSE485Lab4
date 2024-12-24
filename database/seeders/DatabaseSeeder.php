@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Book;
+use App\Models\Reader;
 use App\Models\User;
 use App\Models\Borrow;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -15,6 +16,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+// <<<<<<< HEAD
         $this->call(Borrow::class);
         User::factory(10)->create();
         User::factory()->create([
@@ -30,6 +32,17 @@ class DatabaseSeeder extends Seeder
             'email' => 'test@example.com',
         ]);
         
-    }
+// =======
+        // User::factory(10)->create();
+
+        // User::factory()->create([
+        //     'name' => 'Test User',
+        //     'email' => 'test@example.com',
+        // ]);
+//         Reader::factory(10)->create();
+//         Book::factory(10)->create();
+
+// >>>>>>> bbfed5b893c290a0a9bf5c05b58637a1a814005f
+}
 
 }
