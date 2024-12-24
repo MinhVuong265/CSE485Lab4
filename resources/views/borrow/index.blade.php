@@ -36,11 +36,13 @@
         @endforeach
     </tbody>
 </table>
-<nav aria-label="Page navigation example">
+<nav aria-label="Page navigation example" class="pagination justify-content-center">
   <ul class="pagination">
     @if($borrows->onFirstPage())
     <li class="page-item disabled">
-      <span class="page-link">Previous</span>
+      <a class="page-link" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
     </li>
     @else
     <li class="page-item">
@@ -67,7 +69,9 @@
         </li>
     @else
     <li class="page-item disabled">
-        <span class="page-link">Next</span>
+      <a class="page-link" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+    </a>
       </li>
     @endif
   </ul>
