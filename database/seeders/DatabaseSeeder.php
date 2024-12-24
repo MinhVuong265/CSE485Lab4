@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Book;
+use App\Models\Reader;
 use App\Models\User;
 use App\Models\Borrow;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;

@@ -17,10 +17,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{ route('readers.index') }}">Danh sách độc giả</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{{ route('borrow.index') }}">Danh sách mượn trả</a>
+                        <a class="nav-link active" aria-current="page" href="{{ route('books.index') }}">Danh sách Book</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('books.create') }}">Thêm sách</a>
