@@ -15,9 +15,9 @@
         </tr>
     </thead>
     <tbody>
-        @foreach($borrows as $key=>$borrow)
+        @foreach($borrows as $index=>$borrow)
         <tr>
-            <th scope="row">{{$key+1}}</th>
+            <th scope="row">{{($borrows->currentPage() - 1) * $borrows->perPage() + $index + 1}}</th>
             <td>{{ $borrow->reader->name }}</td>
             <td>{{ $borrow->book->name }}</td>
             <td>{{ $borrow->borrow_date }}</td>
@@ -36,6 +36,41 @@
         @endforeach
     </tbody>
 </table>
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    @if($borrows->onFirstPage())
+    <li class="page-item disabled">
+      <span class="page-link">Previous</span>
+    </li>
+    @else
+    <li class="page-item">
+      <a class="page-link" href="{{ $borrows->previousPageUrl() }}" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+    @endif
+    @foreach ($borrows->links()->elements[0] as $page => $url)
+        @if ($page == $borrows->currentPage())
+        <li class="page-item active" aria-current="page">
+            <span class="page-link">{{ $page }}</span>
+          </li>
+        @else
+        <li class="page-item"><a class="page-link" href="{{ $url }}">{{ $page }}</a></li>
+        @endif
+    @endforeach
 
+    @if ($borrows->hasMorePages())
+        <li>
+        <a class="page-link" href="{{ $borrows->nextPageUrl() }}" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+        </a>
+        </li>
+    @else
+    <li class="page-item disabled">
+        <span class="page-link">Next</span>
+      </li>
+    @endif
+  </ul>
+</nav>
 
 @endsection

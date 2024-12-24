@@ -24,7 +24,7 @@
                         <td>{{ $reader->address }}</td>
                         <td>{{ $reader->phone }}</td>
                         <td>
-                            <a href="{{ route('readers.show', $reader->id) }}" class="btn btn-info">Xem</a>
+                            <a href="{{ route('readers.history', $reader->id) }}" class="btn btn-info">Xem</a>
                             <a href="{{ route('readers.edit', $reader->id) }}" class="btn btn-warning">Sửa</a>
                             <form action="{{ route('readers.destroy', $reader->id) }}" method="POST" style="display: inline-block;">
                                 @csrf

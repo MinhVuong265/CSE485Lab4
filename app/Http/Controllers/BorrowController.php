@@ -14,7 +14,7 @@ class BorrowController extends Controller
      */
     public function index()
     {
-        $borrows = Borrow::with('reader', 'book')->get();
+        $borrows = Borrow::with('reader', 'book')->orderBy('borrow_date', 'desc')->paginate(10);
         return view('borrow.index', compact('borrows'));
     }
 
@@ -61,11 +61,11 @@ class BorrowController extends Controller
     /**
      * Display the specified resource.
      */
-    public function showHistory(Reader $reader)
+    public function history(Reader $reader)
     {
         //
-        $borrows = $reader->borrow()->with('book')->get();
-        return view('reader.history', compact('reader', 'borrows'));
+        $borrows = Borrow::where('reader_id',$reader->id)->get();
+        return view('readers.history', compact('reader', 'borrows'));
     }
 
     /**
